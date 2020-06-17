@@ -12,6 +12,7 @@ use Symfony\Component\HttpClient\HttpClient;
 class FeatureContext implements Context
 {
     protected $response;
+    private $customer;
 
     /**
      * Initializes context.
@@ -22,6 +23,7 @@ class FeatureContext implements Context
      */
     public function __construct()
     {
+        $this->customer = new Customer();
     }
 
     /**
