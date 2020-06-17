@@ -31,6 +31,10 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
+      - run:
+          name: Run web server
+          command: php bin/console server:run --env=test -vvv localhost:8080 > server.log 2>&1:
+          background: true
 
       # run tests with phpunit
       - run:
